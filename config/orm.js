@@ -30,10 +30,11 @@ var orm = {
             cb(result);
         });
     },
+
     insertOne: function(table, cols, vals, cb) {
-        var queryString = "INSERT INTO " + table + ` (${cols.toString()}) VALUES (`;
+        var queryString = "INSERT INTO " + table + " (" + cols.toString() + ") VALUES (";
         queryString += printQuestion(vals.length);
-        queryString += ") ;";
+        queryString += ") ";
         console.log('insertOne TEST: ' + queryString);
 
         connection.query(queryString, vals, function(err, result) {
@@ -43,6 +44,7 @@ var orm = {
             cb(result);
         });
     },
+    
     updateOne: function(table, objColVals, condition, cb) {
         var queryString = "UPDATE " + table;
         queryString += " SET ";

@@ -1,6 +1,6 @@
-<img src="/public/assets/img/burger.jpg" width="500px" id="frontPage_burger">
-<h1> Eat-Da-Burger!</h1>
 
+<h1> Eat-Da-Burger!</h1>
+<br><br>
 <div class="container">
     <div class="row">
         <div class="col-md-4">
@@ -9,7 +9,7 @@
                 {{#unless this.devoured}}
                 <li>
                     {{this.burger_name}}
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                    <form action="/burgers/{{this.id}}?_method=PUT" method="POST">
                         <input type="hidden" name="devoured" value="true">
                         <button class="button btn-success" type="submit">Devour the Burger</button><BR>
                     </form>
@@ -19,18 +19,18 @@
             </ul>
         </div>
         <div class="col-md-4">
-            <form class="create-update-form" action="/" method="POST">
+            <form class="create-update-form" action="/burgers" method="POST">
                 <div class="form-group text-center">
                     <label for="ca">
                         <h3>Add a burger</h3>
                     </label>
-                    <input type="text" id="ca" name="name">
+                    <input type="text" id="name" name="burger_name">
                     <button class="button btn-success" type="submit">Add Burger</button>
                 </div>
             </form>
         </div>
         <div class="col-md-4">
-            <h5>Devoured Burgers</h5>
+            <h3>Devoured Burgers</h3>
             <br>
             <ul>
                 {{#each burgers}}
